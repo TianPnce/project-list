@@ -6,6 +6,7 @@
 ## Table of Contents
 * [User Story](#user-story)
 * [Usage](#usage)
+* [Future Deployment](#future-deployment)
 * [Tech](#tech)
 * [Screenshots](#screenshots)
 * [Questions](#questions)
@@ -32,6 +33,12 @@ PASSWORD='chhiqcvjriedxbhd'
 ```
 5. Run `Server.js`
 6. Open `localhost:3001`
+
+## Future Deployment
+* I would like to add the feature to be able to edit items and change the items itself and how important it is
+* Being able to add other users and be able to share one big list that everyone is able to add on to
+* Having the ablity to have a dark and light mode
+* Being able to see your recently deleted notes/items
 
 ## Tech
 ### NPM Packages
