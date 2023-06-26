@@ -1,0 +1,111 @@
+<h1>{{first_name}}'s EZ Lists</h1>
+
+<button
+  type="button"
+  class="btn"
+  data-bs-toggle="modal"
+  data-bs-target="#ezlistModal">
+  <p class="fs-5">New List</p>
+</button>
+
+<div
+  class="modal fade"
+  id="ezlistModal"
+  tabindex="-1"
+  aria-labelledby="ezlistModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="ezlistModal">Add a List</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form id="addEzlist">
+          <input
+            type="text"
+            class="form-control mb-3"
+            id="ezlistName"
+            placeholder="Name"
+          />
+          <button type="submit" class="btn btn-primary">Create List</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button
+  type="button"
+  class="btn"
+  data-bs-toggle="modal"
+  data-bs-target="#mailModal">
+  <p class="fs-5">Send List</p></button>
+
+<div
+  class="modal fade"
+  id="mailModal"
+  tabindex="-1"
+  aria-labelledby="mailModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="mailModal">Send List</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form action="" id="sendEzlist">
+          <input
+            type="email"
+            class="form-control mb-3"
+            id="receivingEmail"
+            placeholder="Email"
+          />
+          <select
+            class="form-select mb-3"
+            aria-label="Default select example"
+            id="ezlistSelect"
+          >
+            {{#each ezlists}}
+              <option value="{{id}}">{{name}}</option>
+            {{/each}}
+          </select>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            id="emailBtn"
+            data-userName="{{first_name}}"
+          >Send List</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {{#each ezlists}}
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <a href="/api/ezlists/{{id}}"><h3>{{name}}</h3></a>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+<script src="/js/profile.js"></script>
+<script src="/js/nodemailer.js"></script>

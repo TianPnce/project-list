@@ -1,0 +1,110 @@
+<h1>{{name}}</h1>
+
+{{#if validateUser}}
+  <button
+    type="button"
+    class="btn"
+    data-bs-toggle="modal"
+    data-bs-target="#addModal">
+  <p>Add Item</p></button>
+
+  <div
+    class="modal fade"
+    id="addModal"
+    tabindex="-1"
+    aria-labelledby="addModal"
+    aria-hidden="true"
+    >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="addModal">Add a note</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form id="addItem" data-listId="{{id}}">
+            <input
+              type="text"
+              class="form-control mb-3"
+              id="itemName"
+              placeholder="Note"
+            />
+            <label for="priorityLevel">Importance</label>
+            <select class="form-select mb-3" id="priorityLevel">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High!</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Add item</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button
+    type="button"
+    class="btn"
+    data-bs-toggle="modal"
+    data-bs-target="#editModal">
+  <p>Edit List</p></button>
+
+  <div
+    class="modal fade"
+    id="editModal"
+    tabindex="-1"
+    aria-labelledby="editModal"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="editModal">Edit List Title</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form id="editEzlist" data-listId="{{id}}">
+            <input
+              type="text"
+              class="form-control mb-3"
+              id="editListName"
+              placeholder="name"
+            />
+            <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn" id="delBtn" data-listId="{{id}}">
+    <p>Delete List</p></button>
+{{/if}}
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {{#each items}}
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title fs-4">{{name}}</h5>
+          <p class="priority">{{priority}}</p>
+          <button class="delItemBtn btn fs-5" data-itemId="{{id}}">
+            <p>Delete Item</p></button>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+<script src="/js/ezlist.js"></script>

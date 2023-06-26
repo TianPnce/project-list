@@ -1,0 +1,2 @@
+DROP DATABASE ezlist_db;
+CREATE DATABASE ezlist_db;
